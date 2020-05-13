@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi_graph"
+    app:startDestination="@id/start_fragment"
+    tools:ignore="UnusedNavigation">
+    <!--  pick screen to run first-->
+    <fragment
+        android:id="@+id/start_fragment"
+        android:name="com.example.questapp.views.fragments.StartFragment"
+        android:label="start_Fragment"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_listFragment"
+            app:destination="@+id/fragment_list_quizz"
+            app:popUpTo="@id/start_fragment"
+            app:popUpToInclusive="true" />
+        <!--        want to back start_fragment-->
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_list_quizz"
+        android:name="com.example.questapp.views.fragments.ListQuizzFragment"
+        android:label="list_fragment"
+        tools:layout="@layout/fragment_list_quizz">
+
+    </fragment>
+</navigation>

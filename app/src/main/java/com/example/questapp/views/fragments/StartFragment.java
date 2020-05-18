@@ -63,6 +63,8 @@ public class StartFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         navController = Navigation.findNavController(view);
         tv_feedBack.setText("Checking...");
+
+
     }
 
 

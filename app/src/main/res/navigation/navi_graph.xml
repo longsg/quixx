@@ -23,6 +23,34 @@
         android:name="com.example.questapp.views.fragments.ListQuizzFragment"
         android:label="list_fragment"
         tools:layout="@layout/fragment_list_quizz">
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@+id/fragment_detail_quizz"
+            app:enterAnim="@anim/sidein"
+            app:exitAnim="@anim/siadeout" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_detail_quizz"
+        android:name="com.example.questapp.views.fragments.DetailFragment"
+        android:label="detail fragment"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/action_fragmentDetail_to_quizzFragment"
+            app:destination="@id/fragment_quizzDetail"
+            app:popUpTo="@id/fragment_list_quizz"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="position"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_quizzDetail"
+        android:name="com.example.questapp.views.fragments.QuizzDetail"
+        android:label="quizz_detail"
+        tools:layout="@layout/fragment_quizz_detail">
+
 
     </fragment>
 </navigation>

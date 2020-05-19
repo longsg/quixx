@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "338082904555",
+    "firebase_url": "https://questapp-99939.firebaseio.com",
+    "project_id": "questapp-99939",
+    "storage_bucket": "questapp-99939.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338082904555:android:56621b2938315be5c841ae",
+        "android_client_info": {
+          "package_name": "com.example.questapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338082904555-avetj7s02lkdde1pk6q70ejei5e10j8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdTWVeSvefg3z5CZxKl8zoK2AO5MfqROU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338082904555-avetj7s02lkdde1pk6q70ejei5e10j8t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -18,4 +18,11 @@
         <item name="android:textSize">20dp</item>
         <item name="android:textStyle">normal</item>
     </style>
+
+    <style name="customButton" parent="Widget.AppCompat.Button">
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="background">@drawable/custom_button</item>
+    </style>
 </resources>

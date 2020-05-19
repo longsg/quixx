@@ -1,5 +1,6 @@
 package com.example.questapp.views.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,12 +28,12 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailFragment extends Fragment {
+public class DetailFragment extends Fragment implements View.OnClickListener {
     private static final String TAG = "DetailFragment";
     private NavController navController;
     private QuizzViewModel quizzViewModel;
     private int position;
-
+    private String quizzId;
     //
     private ImageView details_image;
     private TextView
@@ -70,6 +71,9 @@ public class DetailFragment extends Fragment {
         details_difficulty = view.findViewById(R.id.details_difficulty);
         details_questions = view.findViewById(R.id.details_questions);
         details_title = view.findViewById(R.id.details_title);
+        details_start_btn = view.findViewById(R.id.details_start_btn);
+        details_start_btn.setOnClickListener(this);
+
     }
 
     @Override
@@ -77,6 +81,7 @@ public class DetailFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         quizzViewModel = new ViewModelProvider(requireActivity()).get(QuizzViewModel.class);
         quizzViewModel.getQuizzMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<Quizz>>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChanged(List<Quizz> quizzList) {
                 Glide.with(getContext())
@@ -87,8 +92,20 @@ public class DetailFragment extends Fragment {
                 details_description.setText(quizzList.get(position).getDesc());
                 details_questions.setText(quizzList.get(position).getQuestion() + "");
                 details_difficulty.setText(quizzList.get(position).getLvl());
+                quizzId = quizzList.get(position).getQuizz_id();
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.details_start_btn:
+                DetailFragmentDirections.ActionDetailFragmentToQuizzFragment actionDetailFragmentToQuizzFragment = DetailFragmentDirections.actionDetailFragmentToQuizzFragment();
+                actionDetailFragmentToQuizzFragment.setQuizzId(quizzId);
+                navController.navigate(actionDetailFragmentToQuizzFragment);
+                break;
+        }
     }
 }

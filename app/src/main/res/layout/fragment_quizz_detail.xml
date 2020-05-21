@@ -25,7 +25,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:hint="@string/quizz_title"
-        android:maxLines="3"
+        android:maxLines="4"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -35,27 +35,55 @@
 
     <ProgressBar
         android:id="@+id/quiz_question_progress"
-        style="?android:attr/progressBarStyle"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
         android:layout_width="62dp"
         android:layout_height="62dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="16dp"
+        android:progress="100"
+        android:progressDrawable="@drawable/custom_progress"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+    </ProgressBar>
+
+    <TextView
+        android:id="@+id/quiz_question_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/quiz_question_progress"
+        app:layout_constraintEnd_toEndOf="@+id/quiz_question_progress"
+        app:layout_constraintStart_toStartOf="@+id/quiz_question_progress"
+        app:layout_constraintTop_toTopOf="@+id/quiz_question_progress" />
+
+    <TextView
+        android:id="@+id/quiz_question_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/quiz_question_number_title"
+        android:text="Questions"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quiz_title" />
 
     <TextView
-        android:id="@+id/quiz_question_number_title"
+        android:id="@+id/quiz_question_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:hint="10"
         android:textSize="37sp"
         android:textStyle="bold"
         android:typeface="monospace"
-        app:layout_constraintEnd_toStartOf="@+id/quiz_question_progress"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quiz_title" />
+        app:layout_constraintEnd_toEndOf="@+id/quiz_question_title"
+        app:layout_constraintStart_toStartOf="@+id/quiz_question_title"
+        app:layout_constraintTop_toBottomOf="@+id/quiz_question_title"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/quiz_question"
@@ -118,8 +146,11 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
         android:paddingStart="2dp"
+        android:maxLines="3"
+        android:textAlignment="center"
         android:text="Verifying Answer"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/question_next_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quiz_option_three" />

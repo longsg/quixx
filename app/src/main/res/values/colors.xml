@@ -6,4 +6,11 @@
     <color name="colorDark">#111111</color>
     <color name="colorLightText">#929292</color>
     <color name="colorDetail">#6E6F78</color>
+    <color name="notAnswer">#FFEA00</color>
+    <color name="colorButton">#E8E8EC</color>
+
+    <color name="correct">#65A131</color>
+    <color name="wrong">#F1103C</color>
+
+
 </resources>

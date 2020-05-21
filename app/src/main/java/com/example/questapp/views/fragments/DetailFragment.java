@@ -1,6 +1,5 @@
 package com.example.questapp.views.fragments;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,19 +32,18 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
     private NavController navController;
     private QuizzViewModel quizzViewModel;
     private int position;
+    private Long totalQuestions = 0L;
     private String quizzId;
     //
     private ImageView details_image;
     private TextView
-            details_title,
             details_description,
-            details_difficulty,
-            details_questions,
-            details_score,
             details_difficulty_text,
             details_questions_text,
             details_score_text;
     private Button details_start_btn;
+    private String quizzName;
+
 
     public DetailFragment() {
         // Required empty public constructor
@@ -68,31 +66,33 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
         Log.d("APP", "onViewCreated: " + position);
         details_image = view.findViewById(R.id.details_image);
         details_description = view.findViewById(R.id.details_desc);
-        details_difficulty = view.findViewById(R.id.details_difficulty);
-        details_questions = view.findViewById(R.id.details_questions);
-        details_title = view.findViewById(R.id.details_title);
+        details_difficulty_text = view.findViewById(R.id.details_difficulty_text);
+        details_questions_text = view.findViewById(R.id.details_questions_text);
+        details_score_text = view.findViewById(R.id.details_score_text);
         details_start_btn = view.findViewById(R.id.details_start_btn);
         details_start_btn.setOnClickListener(this);
+
 
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        quizzViewModel = new ViewModelProvider(requireActivity()).get(QuizzViewModel.class);
+        quizzViewModel = new ViewModelProvider(getActivity()).get(QuizzViewModel.class);
         quizzViewModel.getQuizzMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<Quizz>>() {
-            @SuppressLint("SetTextI18n")
             @Override
             public void onChanged(List<Quizz> quizzList) {
                 Glide.with(getContext())
                         .load(quizzList.get(position).getImage())
                         .centerCrop()
                         .into(details_image);
-                details_title.setText(quizzList.get(position).getName());
                 details_description.setText(quizzList.get(position).getDesc());
-                details_questions.setText(quizzList.get(position).getQuestion() + "");
-                details_difficulty.setText(quizzList.get(position).getLvl());
-                quizzId = quizzList.get(position).getQuizz_id();
+
+                details_difficulty_text.setText(quizzList.get(position).getLvl());
+                quizzId = quizzList.get(position).getQuizzId();
+                totalQuestions = quizzList.get(position).getQuestions();
+                details_questions_text.setText(totalQuestions + "");
+                quizzName = quizzList.get(position).getName();
             }
         });
 
@@ -104,6 +104,7 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
             case R.id.details_start_btn:
                 DetailFragmentDirections.ActionDetailFragmentToQuizzFragment actionDetailFragmentToQuizzFragment = DetailFragmentDirections.actionDetailFragmentToQuizzFragment();
                 actionDetailFragmentToQuizzFragment.setQuizzId(quizzId);
+                actionDetailFragmentToQuizzFragment.setTotalQuestions(totalQuestions);
                 navController.navigate(actionDetailFragmentToQuizzFragment);
                 break;
         }

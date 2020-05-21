@@ -4,30 +4,30 @@ import com.google.firebase.firestore.DocumentId;
 
 public class Quizz {
     @DocumentId
-    private String quizz_id;
+    private String quizzId;
     private String desc, name, lvl, image, visibility;
-    private long question;
+    private long questions;
 
 
     public Quizz() {
     }
 
-    public Quizz(String quizz_id, String desc, String name, String lvl, String image, String visibility, long question) {
-        this.quizz_id = quizz_id;
+    public Quizz(String quizzId, String desc, String name, String lvl, String image, String visibility, long questions) {
+        this.quizzId = quizzId;
         this.desc = desc;
         this.name = name;
         this.lvl = lvl;
         this.image = image;
         this.visibility = visibility;
-        this.question = question;
+        this.questions = questions;
     }
 
-    public String getQuizz_id() {
-        return quizz_id;
+    public String getQuizzId() {
+        return quizzId;
     }
 
-    public void setQuizz_id(String quizz_id) {
-        this.quizz_id = quizz_id;
+    public void setQuizzId(String quizzId) {
+        this.quizzId = quizzId;
     }
 
     public String getDesc() {
@@ -70,11 +70,11 @@ public class Quizz {
         this.visibility = visibility;
     }
 
-    public long getQuestion() {
-        return question;
+    public long getQuestions() {
+        return questions;
     }
 
-    public void setQuestion(long question) {
-        this.question = question;
+    public void setQuestions(long questions) {
+        this.questions = questions;
     }
 }

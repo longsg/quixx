@@ -50,14 +50,40 @@
         android:name="com.example.questapp.views.fragments.QuizzDetail"
         android:label="quizz_detail"
         tools:layout="@layout/fragment_quizz_detail">
-
-        <argument
-            android:name="position"
-            app:argType="integer"
-            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_quizzFragment_to_resultFragment"
+            app:destination="@+id/resultFragment"
+            app:popUpTo="@id/fragment_quizzDetail"
+            app:popUpToInclusive="true" />
         <argument
             android:name="quizzId"
             app:argType="string"
             android:defaultValue="null" />
+        <argument
+            android:name="totalQuestions"
+            android:defaultValue="0L"
+            app:argType="long" />
+        <argument
+            android:name="quizzName"
+            android:defaultValue="null"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.questapp.views.fragments.ResultFragment"
+        android:label="result_fragment"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment_to_ListFragment"
+            app:destination="@+id/fragment_list_quizz"
+            app:popUpTo="@id/resultFragment"
+            app:popUpToInclusive="true"
+
+
+            />
+        <argument
+            android:name="quizId"
+            android:defaultValue="null"
+            app:argType="string" />
     </fragment>
 </navigation>

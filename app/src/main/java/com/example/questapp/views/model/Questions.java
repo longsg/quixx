@@ -1,14 +1,26 @@
 package com.example.questapp.views.model;
 
 import com.google.firebase.firestore.DocumentId;
+import com.google.firebase.firestore.PropertyName;
 
 public class Questions {
+    //all fields need same on firebase fields
     @DocumentId
     private String questionId;
-    private String question, answer, optionA, optionB, optionC;
-    private long timer;
+    private String question, answer, answer_a, answer_b, answer_c;
+    private int timer;
 
     public Questions() {
+    }
+
+    public Questions(String questionId, String question, String answer, String answer_a, String answer_b, String answer_c, int timer) {
+        this.questionId = questionId;
+        this.question = question;
+        this.answer = answer;
+        this.answer_a = answer_a;
+        this.answer_b = answer_b;
+        this.answer_c = answer_c;
+        this.timer = timer;
     }
 
     public String getQuestionId() {
@@ -35,35 +47,35 @@ public class Questions {
         this.answer = answer;
     }
 
-    public String getOptionA() {
-        return optionA;
+    public String getAnswer_a() {
+        return answer_a;
     }
 
-    public void setOptionA(String optionA) {
-        this.optionA = optionA;
+    public void setAnswer_a(String answer_a) {
+        this.answer_a = answer_a;
     }
 
-    public String getOptionB() {
-        return optionB;
+    public String getAnswer_b() {
+        return answer_b;
     }
 
-    public void setOptionB(String optionB) {
-        this.optionB = optionB;
+    public void setAnswer_b(String answer_b) {
+        this.answer_b = answer_b;
     }
 
-    public String getOptionC() {
-        return optionC;
+    public String getAnswer_c() {
+        return answer_c;
     }
 
-    public void setOptionC(String optionC) {
-        this.optionC = optionC;
+    public void setAnswer_c(String answer_c) {
+        this.answer_c = answer_c;
     }
 
-    public long getTimer() {
+    public int getTimer() {
         return timer;
     }
 
-    public void setTimer(long timer) {
+    public void setTimer(int timer) {
         this.timer = timer;
     }
 }

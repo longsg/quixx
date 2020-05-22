@@ -140,7 +140,7 @@ public class QuizzDetail extends Fragment implements View.OnClickListener {
 
     private void displayData() {
 
-        quiz_question_number.setText("1");
+
         //enableOption
         enableOptions();
         //loadQuestion
@@ -154,6 +154,7 @@ public class QuizzDetail extends Fragment implements View.OnClickListener {
         quiz_option_one.setText(answerList.get(questionPosition - 1).getAnswer_a());
         quiz_option_two.setText(answerList.get(questionPosition - 1).getAnswer_b());
         quiz_option_three.setText(answerList.get(questionPosition - 1).getAnswer_c());
+
         currentQuestion = questionPosition;
         isTrueAnser = true;
         startTimeer(questionPosition);
